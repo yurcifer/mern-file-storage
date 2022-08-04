@@ -1,4 +1,5 @@
 {
   "serverPort": 5000,
-  "dbUrl": "mongodb://localhost:27017/mernStorage"
+  "dbUrl": "mongodb://localhost:27017/mernStorage",
+  "secretKey": "ajoiasjdi1ed10a9uwajsdoij"
 }
