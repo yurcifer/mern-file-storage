@@ -14,12 +14,7 @@ function Registration() {
   return (
     <div className={styles.container}>
       <h3>Registration</h3>
-      <Input
-        type="text"
-        placeholder="Введите email..."
-        value={login}
-        setValue={setLogin}
-      />
+      <Input type="text" placeholder="Введите email..." value={login} setValue={setLogin} />
       <Input
         type="password"
         placeholder="Придумайте надёжный пароль..."
