@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './navbar.module.scss';
 import logo from '../../assets/images/navbarLogo.svg';
-import { Link } from 'react-router-dom';
+import NavLink from '../../utils/navLink/NavLink';
 
 function Navbar() {
   return (
@@ -9,10 +9,12 @@ function Navbar() {
       <img src={logo} alt="" className={styles.logo} />
       <div className={styles.header}>MERN STORAGE</div>
       <div className={styles.login}>
-        <Link to="/login">Login</Link>
+        <NavLink to="/login">
+          Login
+        </NavLink>
       </div>
       <div className={styles.registration}>
-        <Link to="/registration">Registration</Link>
+        <NavLink to="/registration">Registration</NavLink>
       </div>
     </div>
   );

@@ -1,0 +1,16 @@
+button {
+  background-color: var(--font-color);
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  transition-duration: 200ms;
+  &:hover {
+    background-color: var(--focus-color);
+  }
+  &:active {
+    
+    transform: scale(0.9);
+  }
+}
