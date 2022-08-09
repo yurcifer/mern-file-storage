@@ -1,0 +1,30 @@
+:root {
+  --navbar-height: 3.5rem;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  width: 100vw;
+  box-shadow: 0 5px 10px rgb(174, 173, 173);
+  background-color: white;
+}
+
+.header {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.login {
+  margin-left: auto;
+  margin-right: 1.5em;
+}
+.registration {
+  margin-right: 1.5em;
+}
+
+.logo {
+  height: 60%;
+  margin: auto 10px;
+  display: flex;
+}
