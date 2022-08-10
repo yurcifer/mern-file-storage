@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../../utils/input/input';
 import LoginBtn from '../../utils/loginBtn/LoginBtn';
-import styles from './login.module.scss';
+import styles from './auth.module.scss';
 import { login } from '../../rest/user'
 
 function Login() {

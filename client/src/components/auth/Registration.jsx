@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './registration.module.scss';
+import styles from './auth.module.scss';
 import Input from '../../utils/input/input';
 import LoginBtn from '../../utils/loginBtn/LoginBtn';
 import { registration } from '../../rest/user';

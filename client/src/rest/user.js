@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+import { setUser } from '../reducers/userSlice.js';
+import store from '../store/store';
 export const registration = async (email, password) => {
   try {
     const response = await axios.post('http://localhost:5000/api/auth/registration', {
@@ -19,7 +20,10 @@ export const login = async (email, password) => {
       password,
     });
     console.log(response.data);
+    store.dispatch(setUser(response.data));
+    localStorage.setItem('token', response.data.token);
   } catch (e) {
+    console.log(e);
     alert(e.response.data.message);
   }
 };
