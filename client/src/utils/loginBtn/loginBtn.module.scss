@@ -1,4 +1,4 @@
-button {
+.btn {
   background-color: var(--font-color);
   color: white;
   padding: 5px;
@@ -10,7 +10,6 @@ button {
     background-color: var(--focus-color);
   }
   &:active {
-    
     transform: scale(0.9);
   }
 }

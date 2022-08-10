@@ -1,0 +1,14 @@
+.btn {
+  color: var(--font-color);
+  background: none;
+  border: none;
+  font-size: 1em;
+  transition-duration: 200ms;
+  &:hover {
+    color: var(--focus-color);
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}

@@ -18,9 +18,19 @@
 .login {
   margin-left: auto;
   margin-right: 1.5em;
+  display: inline;
 }
 .registration {
-  margin-right: 1.5em;
+  display: inline;
+  height: 100%;
+}
+
+.filler {
+  flex-grow: 1;
+}
+
+.auth {
+  padding: 1.5em;
 }
 
 .logo {
