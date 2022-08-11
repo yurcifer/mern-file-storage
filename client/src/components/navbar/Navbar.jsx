@@ -19,19 +19,20 @@ function Navbar() {
       <div className={styles.header}>MERN STORAGE</div>
       <div className={styles.filler}></div>
       <div className={styles.auth}>
-        {isAuth ? (
+        {isAuth && (
           <StringBtn className={styles.btn} onClick={signOut}>
             Sign out
           </StringBtn>
-        ) : (
-          <>
-            <div className={styles.login}>
-              <NavLink to="/login">Login</NavLink>
-            </div>
-            <div className={styles.registration}>
-              <NavLink to="/registration">Registration</NavLink>
-            </div>
-          </>
+        )}
+        {!isAuth && (
+          <div className={styles.login}>
+            <NavLink to="/login">Login</NavLink>
+          </div>
+        )}
+        {!isAuth && (
+          <div className={styles.registration}>
+            <NavLink to="/registration">Registration</NavLink>
+          </div>
         )}
       </div>
     </div>
