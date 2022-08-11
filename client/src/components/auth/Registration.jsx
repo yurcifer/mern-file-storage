@@ -8,13 +8,14 @@ function Registration() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const clickHandler = () => {
+  const submitHandler = e => {
+    e && e.preventDefault();
     registration(email, password);
     setEmail('');
     setPassword('');
   };
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={e => submitHandler(e)}>
       <h3>Registration</h3>
       <Input type="text" placeholder="Введите email..." value={email} setValue={setEmail} />
       <Input
@@ -23,10 +24,10 @@ function Registration() {
         value={password}
         setValue={setPassword}
       />
-      <LoginBtn onClick={clickHandler} className={styles.btn}>
+      <LoginBtn onClick={submitHandler} className={styles.btn}>
         Sign up
       </LoginBtn>
-    </div>
+    </form>
   );
 }
 

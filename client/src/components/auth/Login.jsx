@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import Input from '../../utils/input/input';
 import LoginBtn from '../../utils/loginBtn/LoginBtn';
 import styles from './auth.module.scss';
-import { login } from '../../rest/user'
+import { login } from '../../rest/user';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const clickHandler = () => {
-    login(email, password)
+  const submitHandler = (e) => {
+    e && e.preventDefault();
+    login(email, password);
     // login(login, password);
     setEmail('');
     setPassword('');
   };
 
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={e => submitHandler(e)}>
       <h3>Login</h3>
       <Input type="text" placeholder="Введите email..." value={email} setValue={setEmail} />
       <Input
@@ -25,10 +26,10 @@ function Login() {
         value={password}
         setValue={setPassword}
       />
-      <LoginBtn onClick={clickHandler} className={styles.btn}>
+      <LoginBtn onClick={submitHandler} className={styles.btn}>
         Sign in
       </LoginBtn>
-    </div>
+    </form>
   );
 }
 
