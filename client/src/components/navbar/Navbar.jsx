@@ -4,14 +4,14 @@ import logo from '../../assets/images/navbarLogo.svg';
 import NavLink from '../../utils/navLink/NavLink';
 import StringBtn from '../../utils/stringBtn/StringBtn';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuth } from '../../reducers/userSlice';
+import { logOut as logOutAction } from '../../reducers/userSlice';
 
 function Navbar() {
   const isAuth = useSelector(store => store.user.isAuth);
   const dispatch = useDispatch();
-  const signOut = () => {
+  const logOut = () => {
     localStorage.removeItem('token');
-    dispatch(setAuth(null));
+    dispatch(logOutAction());
   };
   return (
     <div className={styles.navbar}>
@@ -20,7 +20,7 @@ function Navbar() {
       <div className={styles.filler}></div>
       <div className={styles.auth}>
         {isAuth && (
-          <StringBtn className={styles.btn} onClick={signOut}>
+          <StringBtn className={styles.btn} onClick={logOut}>
             Sign out
           </StringBtn>
         )}
