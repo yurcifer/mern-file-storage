@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 const router = new Router();
+const authMiddleware = require('../middleware/auth.middleware');
 
 router.post(
   '/registration',
@@ -48,6 +49,25 @@ router.post('/login', async (req, res) => {
       return res.status(400).send({ message: 'invalid password' });
     }
 
+    const token = jwt.sign({ id: user.id }, config.get('secretKey'), { expiresIn: '5d' });
+    return res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        diskSpace: user.diskSpace,
+        usedSpace: user.usedSpace,
+        avatar: user.avatar,
+      },
+    });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+router.get('/auth', authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findOne({ id: req.user.id });
     const token = jwt.sign({ id: user.id }, config.get('secretKey'), { expiresIn: '5d' });
     return res.json({
       token,
