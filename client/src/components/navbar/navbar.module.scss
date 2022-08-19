@@ -38,3 +38,10 @@
   margin: auto 10px;
   display: flex;
 }
+
+@media (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
+}
