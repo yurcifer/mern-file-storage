@@ -4,16 +4,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Registration from './auth/Registration';
 import Login from './auth/Login';
-import { setAuth } from '../reducers/userSlice';
+import { setAuth, auth } from '../reducers/userSlice';
 import { useEffect } from 'react';
 
 function App() {
   const isAuth = useSelector(store => store.user.isAuth);
   const dispatch = useDispatch();
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) dispatch(setAuth(token));
-  }, [dispatch]);
+    dispatch(auth());
+  }, []);
   return (
     <BrowserRouter>
       <Navbar />

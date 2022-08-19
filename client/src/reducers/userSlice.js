@@ -1,9 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
   currentUser: {},
   isAuth: false,
 };
+
+export const auth = createAsyncThunk('user/auth', async (_, { rejectWithValue, dispatch }) => {
+  try {
+    const res = await axios.get('http://localhost:5000/api/auth/auth', {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
+    console.log(res.data);
+    dispatch(setUser(res.data.user));
+    localStorage.setItem('token', res.data.token);
+  } catch (e) {
+    console.log(e.response.data.message);
+    localStorage.removeItem('token');
+  }
+});
 
 export const userSlice = createSlice({
   name: 'user',
@@ -11,7 +26,7 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.currentUser = action.payload.user;
-      if (action.payload.token) state.isAuth = true;
+      state.isAuth = true;
     },
     setAuth: (state, action) => {
       if (action.payload.token) state.isAuth = true;
