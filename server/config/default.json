@@ -1,5 +1,0 @@
-{
-  "serverPort": 5000,
-  "dbUrl": "mongodb+srv://yurcifer:t27UtMXuApnyiQrn@cluster0.sstod.mongodb.net/?retryWrites=true&w=majority",
-  "secretKey": "ajoiasjdi1ed10a9uwajsdoij"
-}
